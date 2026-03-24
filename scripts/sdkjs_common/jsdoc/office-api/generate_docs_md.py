@@ -423,7 +423,7 @@ def generate_method_markdown(method, enumerations, classes, example_editor_name)
         # Separate comment and code, remove JS comments
         if '```js' in example:
             comment, code = example.split('```js', 1)
-            comment = get_translation(remove_js_comments(comment))
+            comment = get_translation(comment.strip())
             content += f"\n\n## {get_translation(f"Example")}\n\n{comment}\n\n```javascript {example_editor_name}\n{code.strip()}\n"
         else:
             # If there's no triple-backtick structure, just show it as code
@@ -501,7 +501,7 @@ def generate_enumeration_markdown(enumeration, enumerations, classes, example_ed
     if example:
         if '```js' in example:
             comment, code = example.split('```js', 1)
-            comment = remove_js_comments(comment)
+            comment = get_translation(comment.strip())
             content += f"\n\n## {get_translation(f"Example")}\n\n{comment}\n\n```javascript {example_editor_name}\n{code.strip()}\n"
         else:
             # If there's no triple-backtick structure

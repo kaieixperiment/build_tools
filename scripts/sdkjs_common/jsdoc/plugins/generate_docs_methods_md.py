@@ -439,7 +439,7 @@ def generate_method_markdown(method, enumerations, classes):
             # Attempt splitting if the user used ```js
             if '```js' in cleaned_example:
                 comment, code = cleaned_example.split('```js', 1)
-                comment = comment.strip()
+                comment = get_translation(comment.strip())
                 code = code.strip()
                 if len(examples) > 1:
                     content += f"**{get_translation("Example")} {i}:**\n\n{comment}\n\n"
@@ -550,7 +550,7 @@ def generate_enumeration_markdown(enumeration, enumerations, classes):
             # Attempt splitting if the user used ```js
             if '```js' in cleaned_example:
                 comment, code = cleaned_example.split('```js', 1)
-                comment = comment.strip()
+                comment = get_translation(comment.strip())
                 code = code.strip()
                 if len(examples) > 1:
                     content += f"**{get_translation("Example")} {i}:**\n\n{comment}\n\n"
